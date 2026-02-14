@@ -1,18 +1,20 @@
 services:
   backend:
+    env_file:
+      - .env
     build:
       context: ./backend
-    container_name: effective_backend
+    container_name: ${COMPOSE_PROJECT_NAME}_backend
     restart: unless-stopped
     networks:
       - effective_network
 
   nginx:
-    image: nginx:1.29-alpine
-    container_name: effective_nginx
+    image: nginx:${NGINX_VERSION}
+    container_name: ${COMPOSE_PROJECT_NAME}_nginx
     restart: unless-stopped
     ports:
-      - "80:80"
+      - "${NGINX_PORT}:80"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
     depends_on:
