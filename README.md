@@ -1,4 +1,4 @@
-# Effective Mobile — DevOps Test Task
+# DevOps Test Task
 
 Это простое веб-приложение, развернутое с использованием Docker и Docker Compose.
 Приложение состоит из backend-сервиса (Python HTTP server) и nginx в роли reverse proxy.
